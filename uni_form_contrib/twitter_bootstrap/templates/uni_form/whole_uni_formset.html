@@ -21,18 +21,11 @@
             {% include "uni_form/uni_form.html" %}
         {% endif %}
     {% endfor %}
-    
+
     {% if inputs %}
         <div class="actions">
             {% for input in inputs %}
-                <input type="{{ input.input_type }}"
-                        name="{{ input.name|slugify }}"
-                        value="{{ input.value }}"
-                        {% ifnotequal input.input_type "hidden" %}
-                            class="btn {{ input.field_classes }}"
-                            id="{{ input.input_type }}-id-{{ input.name|slugify }}"
-                        {% endifnotequal %}
-                        />
+                {% include "uni_form/layout/baseinput.html" %}
             {% endfor %}
         </div>
     {% endif %}
